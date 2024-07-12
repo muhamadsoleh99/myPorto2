@@ -1,16 +1,17 @@
-// event pada saat link di klik
-$('.page-scroll').on('click', function(e){
-
-	// ambil isi href
-	var tujuan = $(this).attr('href');
-	// tangkap elemen ybs
-	var elemenTujuan = $(tujuan);
-
-	// pindahkan scroll
-	$('body').animate({
-		scrollTop: elemenTujuan.offset().top - 50
-	}, 1250, 'easeInOutExpo');
-
-	e.preventDefault();
-
+$(document).ready(function() {
+    // Event when a link with class 'page-scroll' is clicked
+    $('.page-scroll').on('click', function(e) {
+        // Get the href attribute
+        var target = $(this).attr('href');
+        // Get the target element
+        var $targetElement = $(target);
+        
+        // Animate the scroll
+        $('html, body').animate({
+            scrollTop: $targetElement.offset().top - 50
+        }, 1250, 'easeInOutExpo');
+        
+        // Prevent default link behavior
+        e.preventDefault();
+    });
 });
